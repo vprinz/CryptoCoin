@@ -9,30 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var coinList = [Coin]()
-    @State var selectedCoin: Coin?
-    var dataService = DataService()
+    @Environment(CoinModel.self) var coinModel
     
     var body: some View {
+        
+        @Bindable var coinModel = coinModel
+        
         VStack {
-            List(coinList) { coin in
+            List(coinModel.coinList) { coin in
                 Text(coin.name ?? "")
                     .onTapGesture {
-                        selectedCoin = coin
+                        coinModel.selectedCoin = coin
                     }
             }
             .listStyle(.plain)
         }
         .padding()
-        .task {
-            coinList = await dataService.getCoinList()
+        .sheet(item: $coinModel.selectedCoin) { item in
+            CoinDetailView()
         }
-        .sheet(item: $selectedCoin) { item in
-            CoinDetailView(coin: item)
+        .onAppear {
+            coinModel.getCoinList()
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environment(CoinModel())
 }

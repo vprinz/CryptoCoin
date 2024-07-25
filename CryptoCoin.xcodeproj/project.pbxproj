@@ -14,6 +14,7 @@
 		1B47C89D2C527C7C004AB837 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C89C2C527C7C004AB837 /* DataService.swift */; };
 		1B47C89F2C527C86004AB837 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C89E2C527C86004AB837 /* DataModel.swift */; };
 		1B47C8A12C527CA1004AB837 /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8A02C527CA1004AB837 /* CoinDetailView.swift */; };
+		1B47C8A52C5285C5004AB837 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8A42C5285C5004AB837 /* CoinModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1B47C8A02C527CA1004AB837 /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
 		1B47C8A22C527E0B004AB837 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1B47C8A32C527E53004AB837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1B47C8A42C5285C5004AB837 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				1B47C8A02C527CA1004AB837 /* CoinDetailView.swift */,
 				1B47C89C2C527C7C004AB837 /* DataService.swift */,
 				1B47C89E2C527C86004AB837 /* DataModel.swift */,
+				1B47C8A42C5285C5004AB837 /* CoinModel.swift */,
 				1B47C8A22C527E0B004AB837 /* Config.xcconfig */,
 				1B47C8922C527C5D004AB837 /* Assets.xcassets */,
 				1B47C8942C527C5D004AB837 /* Preview Content */,
@@ -154,6 +157,7 @@
 				1B47C89F2C527C86004AB837 /* DataModel.swift in Sources */,
 				1B47C8912C527C5C004AB837 /* ContentView.swift in Sources */,
 				1B47C8A12C527CA1004AB837 /* CoinDetailView.swift in Sources */,
+				1B47C8A52C5285C5004AB837 /* CoinModel.swift in Sources */,
 				1B47C88F2C527C5B004AB837 /* CryptoCoinApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

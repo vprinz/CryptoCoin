@@ -9,17 +9,18 @@ import SwiftUI
 
 struct CoinDetailView: View {
     
-    var coin: Coin?
+    @Environment(CoinModel.self) var coinModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(coin?.name ?? "")
+            Text(coinModel.selectedCoin?.name ?? "")
                 .font(.largeTitle)
-            Text("Current Price: \(String(format: "%.2f", coin?.currentPrice ?? 0)) rub.")
+            Text("Current Price: \(String(format: "%.2f", coinModel.selectedCoin?.currentPrice ?? 0)) rub.")
         }
     }
 }
 
 #Preview {
     CoinDetailView()
+        .environment(CoinModel())
 }

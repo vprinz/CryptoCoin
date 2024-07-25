@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct CoinDetailView: View {
+    
+    var coin: Coin?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text(coin?.name ?? "")
+                .font(.largeTitle)
+            Text("Current Price: \(String(format: "%.2f", coin?.currentPrice ?? 0)) rub.")
+        }
     }
 }
 

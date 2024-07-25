@@ -8,16 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var coinList = [Coin]()
+    @State var selectedCoin: Coin?
+    var dataService = DataService()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(coinList) { coin in
+                Text(coin.name ?? "")
+                    .onTapGesture {
+                        selectedCoin = coin
+                    }
+            }
+            .listStyle(.plain)
         }
         .padding()
-        .onAppear {
-            print(Bundle.main.infoDictionary?["API_KEY"] ?? "")
+        .task {
+            coinList = await dataService.getCoinList()
+        }
+        .sheet(item: $selectedCoin) { item in
+            CoinDetailView(coin: item)
         }
     }
 }

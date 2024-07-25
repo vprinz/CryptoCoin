@@ -11,6 +11,9 @@
 		1B47C8912C527C5C004AB837 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8902C527C5C004AB837 /* ContentView.swift */; };
 		1B47C8932C527C5D004AB837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B47C8922C527C5D004AB837 /* Assets.xcassets */; };
 		1B47C8962C527C5D004AB837 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B47C8952C527C5D004AB837 /* Preview Assets.xcassets */; };
+		1B47C89D2C527C7C004AB837 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C89C2C527C7C004AB837 /* DataService.swift */; };
+		1B47C89F2C527C86004AB837 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C89E2C527C86004AB837 /* DataModel.swift */; };
+		1B47C8A12C527CA1004AB837 /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8A02C527CA1004AB837 /* CoinDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,11 @@
 		1B47C8902C527C5C004AB837 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B47C8922C527C5D004AB837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B47C8952C527C5D004AB837 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1B47C89C2C527C7C004AB837 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1B47C89E2C527C86004AB837 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		1B47C8A02C527CA1004AB837 /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
+		1B47C8A22C527E0B004AB837 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		1B47C8A32C527E53004AB837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,13 @@
 		1B47C88D2C527C5B004AB837 /* CryptoCoin */ = {
 			isa = PBXGroup;
 			children = (
+				1B47C8A32C527E53004AB837 /* Info.plist */,
 				1B47C88E2C527C5B004AB837 /* CryptoCoinApp.swift */,
 				1B47C8902C527C5C004AB837 /* ContentView.swift */,
+				1B47C8A02C527CA1004AB837 /* CoinDetailView.swift */,
+				1B47C89C2C527C7C004AB837 /* DataService.swift */,
+				1B47C89E2C527C86004AB837 /* DataModel.swift */,
+				1B47C8A22C527E0B004AB837 /* Config.xcconfig */,
 				1B47C8922C527C5D004AB837 /* Assets.xcassets */,
 				1B47C8942C527C5D004AB837 /* Preview Content */,
 			);
@@ -137,7 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B47C89D2C527C7C004AB837 /* DataService.swift in Sources */,
+				1B47C89F2C527C86004AB837 /* DataModel.swift in Sources */,
 				1B47C8912C527C5C004AB837 /* ContentView.swift in Sources */,
+				1B47C8A12C527CA1004AB837 /* CoinDetailView.swift in Sources */,
 				1B47C88F2C527C5B004AB837 /* CryptoCoinApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +163,7 @@
 /* Begin XCBuildConfiguration section */
 		1B47C8972C527C5D004AB837 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B47C8A22C527E0B004AB837 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -210,6 +227,7 @@
 		};
 		1B47C8982C527C5D004AB837 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B47C8A22C527E0B004AB837 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -274,6 +292,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoCoin/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoCoin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +321,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoCoin/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoCoin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -16,6 +16,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            print(Bundle.main.infoDictionary?["API_KEY"] ?? "")
+        }
     }
 }
 

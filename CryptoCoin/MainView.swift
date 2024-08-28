@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @Environment(CoinModel.self) var coinModel
-    @EnvironmentObject private var coordinator: Coordinator
+    @Environment(Coordinator.self) var coordinator
     
     var body: some View {
         

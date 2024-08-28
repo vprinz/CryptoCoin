@@ -17,7 +17,6 @@ struct CoinDetailView: View {
                 .font(.largeTitle)
             Text("Current Price: \(String(format: "%.2f", coinModel.selectedCoin?.currentPrice ?? 0)) rub.")
         }
-        .environmentObject(Coordinator())
     }
 }
 

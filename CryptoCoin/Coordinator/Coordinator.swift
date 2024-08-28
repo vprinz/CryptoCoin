@@ -22,9 +22,10 @@ enum Sheet: String, Identifiable {
 }
 
 
-class Coordinator: ObservableObject {
-    @Published var path = NavigationPath()
-    @Published var sheet: Sheet?
+@Observable
+class Coordinator {
+    var path = NavigationPath()
+    var sheet: Sheet?
     
     func push(_ page: Screen) {
         path.append(page)

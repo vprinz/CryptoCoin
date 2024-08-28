@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     
     @Environment(CoinModel.self) var coinModel
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         
@@ -20,14 +21,12 @@ struct ContentView: View {
                 Text(coin.name ?? "")
                     .onTapGesture {
                         coinModel.selectedCoin = coin
+                         coordinator.present(sheet: .coinDetail)
                     }
             }
             .listStyle(.plain)
         }
         .padding()
-        .sheet(item: $coinModel.selectedCoin) { item in
-            CoinDetailView()
-        }
         .onAppear {
             coinModel.getCoinList()
         }
@@ -35,6 +34,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MainView()
         .environment(CoinModel())
 }

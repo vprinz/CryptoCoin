@@ -23,7 +23,7 @@ struct MainView: View {
             .padding()
             
             Button("Get data by closures") {
-                print("Closures")
+                coinModel.getCoinListByClosure()
             }
             .padding()
             

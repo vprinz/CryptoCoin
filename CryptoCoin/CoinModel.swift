@@ -26,4 +26,17 @@ class CoinModel {
             }
         }
     }
+    
+    func getCoinListByClosure() {
+        dataService.getCoinListByClosure { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let coins):
+                    self.coinList = coins
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
 }

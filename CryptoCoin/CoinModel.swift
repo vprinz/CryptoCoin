@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 
 @Observable
@@ -14,6 +15,7 @@ class CoinModel {
     var coinList = [Coin]()
     var selectedCoin: Coin?
     var dataService = DataService()
+    private var cancellables = Set<AnyCancellable>()
     
     func getCoinListByAsync() {
         Task {
@@ -38,5 +40,21 @@ class CoinModel {
                 }
             }
         }
+    }
+    
+    func getCoinListByCombine() {
+        dataService.getCoinListByCombine()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { coins in
+                self.coinList = coins
+            }
+            .store(in: &cancellables)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 
 struct DataService {
@@ -55,6 +56,19 @@ struct DataService {
                 completion(.failure(error))
             }
         }.resume()
+    }
+    
+    func getCoinListByCombine() -> AnyPublisher<[Coin], Error> {
+        guard let url = URL(string: mainUrl) else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        let request = makeURLRequest(url: url)
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: [Coin].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
     
     private func makeURLRequest(url: URL) -> URLRequest {

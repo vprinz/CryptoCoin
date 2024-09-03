@@ -17,18 +17,18 @@ struct MainView: View {
         @Bindable var coinModel = coinModel
         
         HStack {
-            Button("Get data by async/await") {
+            Button("Get data by Async/Await") {
                 coinModel.getCoinListByAsync()
             }
             .padding()
             
-            Button("Get data by closures") {
+            Button("Get data by Closures") {
                 coinModel.getCoinListByClosure()
             }
             .padding()
             
             Button("Get data by Combine") {
-                print("Combine")
+                coinModel.getCoinListByCombine()
             }
             .padding()
         }

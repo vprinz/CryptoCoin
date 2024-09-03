@@ -15,9 +15,15 @@ class CoinModel {
     var selectedCoin: Coin?
     var dataService = DataService()
     
-    func getCoinList() {
+    func getCoinListByAsync() {
         Task {
-            coinList = await dataService.getCoinList()
+            let result = await dataService.getCoinListByAsync()
+            switch result {
+            case .success(let coins):
+                coinList = coins
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

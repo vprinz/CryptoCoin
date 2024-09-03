@@ -10,7 +10,7 @@ import Foundation
 
 struct DataService {
     
-    func getCoinList() async -> [Coin] {
+    func getCoinListByAsync() async -> Result<[Coin], Error> {
         if let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=rub") {
             var request = URLRequest(url: url)
             request.addValue("application/json", forHTTPHeaderField: "accept")
@@ -19,11 +19,11 @@ struct DataService {
                 let (data, _) = try await URLSession.shared.data(for: request)
                 let decoder = JSONDecoder()
                 let coinList = try decoder.decode([Coin].self, from: data)
-                return coinList
+                return .success(coinList)
             } catch {
-                print(error)
+                return .failure(error)
             }
         }
-        return [Coin]()
+        return .failure(URLError(.badURL))
     }
 }

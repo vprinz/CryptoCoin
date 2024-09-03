@@ -18,7 +18,7 @@ struct MainView: View {
         
         HStack {
             Button("Get data by async/await") {
-                coinModel.getCoinList()
+                coinModel.getCoinListByAsync()
             }
             .padding()
             

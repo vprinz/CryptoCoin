@@ -17,6 +17,13 @@ class CoinModel {
     var dataService = DataService()
     private var cancellables = Set<AnyCancellable>()
     
+    var detailViewModel: CoinDetailViewModel?
+    
+    func didSelectCoin(byId id: String) {
+        guard let selectedCoin = coinList.first(where: { $0.id == id }) else { return }
+        detailViewModel = CoinDetailViewModel(selectedCoin: selectedCoin)
+    }
+    
     func getCoinListByAsync() {
         Task {
             let result = await dataService.getCoinListByAsync()

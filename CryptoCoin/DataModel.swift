@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct Coin: Identifiable, Decodable {
-    var id: String?
-    var name: String?
+struct Coin: Identifiable, Decodable, Equatable {
+    var id: String
+    var name: String
     var currentPrice: Double
     
     enum CodingKeys: String, CodingKey {

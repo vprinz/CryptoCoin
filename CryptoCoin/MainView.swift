@@ -39,18 +39,25 @@ struct MainView: View {
         }
         .disabled(coinModel.coinList.isEmpty)
         .foregroundStyle(coinModel.coinList.isEmpty ? .gray : .red)
+        .onChange(of: coinModel.detailViewModel, { _, newValue in
+            guard let newValue else { return }
+            coordinator.present(sheet: .coinDetail(viewModel: newValue))
+        })
         .padding()
         
+        list
+            .padding()
+    }
+    
+    var list: some View {
         VStack {
             List(coinModel.coinList) { coin in
-                Text(coin.name ?? "")
+                Text(coin.name)
                     .onTapGesture {
-                        coinModel.selectedCoin = coin
-                        coordinator.present(sheet: .coinDetail)
+                        coinModel.didSelectCoin(byId: coin.id)
                     }
             }
             .listStyle(.plain)
         }
-        .padding()
     }
 }

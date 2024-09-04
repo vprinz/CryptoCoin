@@ -15,10 +15,15 @@ enum Screen: String, Identifiable {
     var id: Self { self }
 }
 
-enum Sheet: String, Identifiable {
-    case coinDetail
+enum Sheet: Identifiable {
+    var id: String {
+        switch self {
+        case .coinDetail(let viewModel):
+            return "coinDetail_\(viewModel.selectedCoin.id)"
+        }
+    }
     
-    var id: Self { self }
+    case coinDetail(viewModel: CoinDetailViewModel)
 }
 
 
@@ -46,8 +51,8 @@ class Coordinator {
     @ViewBuilder
     func build(sheet: Sheet) -> some View {
         switch sheet {
-        case .coinDetail:
-            CoinDetailView()
+        case let .coinDetail(viewModel):
+            CoinDetailView(coinModel: viewModel)
         }
     }
 }
